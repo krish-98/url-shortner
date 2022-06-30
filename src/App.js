@@ -1,11 +1,13 @@
-import Header from "./components/Header"
 import Navbar from "./components/Navbar"
+import Header from "./components/Header"
+import Main from "./components/Main"
 
 function App() {
   return (
-    <div className="mx-4">
+    <div>
       <Navbar />
       <Header />
+      <Main />
     </div>
   )
 }

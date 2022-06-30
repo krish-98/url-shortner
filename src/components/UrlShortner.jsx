@@ -1,0 +1,137 @@
+import React, { useState } from "react"
+
+const UrlShortner = () => {
+  const [value, setValue] = useState("")
+  const [data, setData] = useState({})
+  const [isValid, setIsValid] = useState(true)
+  const [copiedText, setCopiedText] = useState(false)
+  const [lists, setLists] = useState([])
+
+  const inputHandler = (e) => {
+    if (e.target.value.trim().length > 0) {
+      setIsValid(true)
+    }
+    setValue(e.target.value)
+  }
+
+  const URLShortner = async (e) => {
+    e.preventDefault()
+    const URL = `https://api.shrtco.de/v2/shorten?url=`
+
+    if (value === "") {
+      setIsValid(false)
+    } else {
+      const fetchedData = await fetch(URL + value)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+          console.log(data.result.original_link, data.result.short_link)
+          setData(data)
+          setLists((previousData) => [...previousData, data])
+        })
+        .catch((error) => {
+          console.log(error.message)
+        })
+
+      // setLists(fetchedData)
+      return fetchedData
+    }
+  }
+
+  const copyToClipboardHandler = (copiedText) => {
+    navigator.clipboard.writeText(copiedText)
+    setCopiedText(true)
+  }
+
+  return (
+    <section className="bg-Gray">
+      <form
+        onSubmit={URLShortner}
+        className="flex bg-DarkViolet p-12 w-[70%] mx-auto rounded-lg"
+      >
+        <div className="w-[80%]">
+          <label htmlFor="">
+            <input
+              className={`w-full p-4 rounded-lg outline-none border-2 ${
+                !isValid
+                  ? ("border-Red", "placeholder:text-Red")
+                  : ("border-white", "placeholder:text-Gray")
+              }`}
+              type="text"
+              placeholder="Shorten a link here..."
+              value={value}
+              onChange={inputHandler}
+            />
+          </label>
+          {!isValid && (
+            <p className="mt-2 text-Red">Please add a link to shorten them</p>
+          )}
+        </div>
+        <div className="w-[20%]">
+          <button className="w-full ml-8 bg-Cyan px-4 py-4 text-white rounded-xl hover:opacity-50">
+            Shorten It!
+          </button>
+        </div>
+      </form>
+
+      {data?.ok &&
+        lists?.length > 0 &&
+        lists?.map((list, index) => (
+          <div
+            key={lists[index]}
+            className="w-[70%] mx-auto bg-white mt-4 p-6 flex justify-between items-center font-semibold"
+          >
+            <div className="mx-4">
+              <p>{list && list?.result?.original_link}</p>
+            </div>
+            <div className="flex items-center gap-4  ">
+              <p className="text-Cyan w-full">
+                {list && list?.result?.short_link}
+              </p>
+              <button
+                onClick={() => copyToClipboardHandler(list?.result?.short_link)}
+                className={` px-8 py-2 rounded-lg text-white hover:opacity-50 ${
+                  copiedText ? "bg-veryDarkViolet" : "bg-Cyan"
+                }`}
+              >
+                {copiedText ? "Copied!" : " Copy"}
+              </button>
+            </div>
+          </div>
+        ))}
+    </section>
+  )
+}
+
+export default UrlShortner
+
+// working
+
+// {data.ok && (
+//   <div className="w-[70%] mx-auto bg-white mt-4 p-6 flex justify-between items-center font-semibold">
+//     <div className="mx-4">
+//       <p>{data && data?.result?.original_link}</p>
+//     </div>
+//     <div className="flex items-center gap-4  ">
+//       <p className="text-Cyan w-full">
+//         {data && data?.result?.short_link}
+//       </p>
+//       <button
+//         onClick={() => copyToClipboardHandler(data?.result?.short_link)}
+//         className={` px-8 py-2 rounded-lg text-white hover:opacity-50 ${
+//           copiedText ? "bg-veryDarkViolet" : "bg-Cyan"
+//         }`}
+//       >
+//         {copiedText ? "Copied!" : " Copy"}
+//       </button>
+//     </div>
+//   </div>
+// )}
+
+// const URLInfo = async () => {
+//   const infoURL = "https://api.shrtco.de/v2/info?code="
+
+//   const responseURLData = await fetch(infoURL + code)
+//     .then((res) => res.json())
+//     .then((data) => console.log(data))
+// }

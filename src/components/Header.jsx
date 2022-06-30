@@ -3,7 +3,7 @@ import Illustration from "../images/illustration-working.svg"
 
 const Header = () => {
   return (
-    <header className="mx-4 overflow-x-hidden-hidden">
+    <header className="mx-8">
       <div className="mt-16 md:flex justify-between max-w-7xl mx-auto md:mt-44">
         <div className="text-center md:text-left">
           <h1 className="text-[4rem] leading-tight font-bold text-veryDarkViolet">

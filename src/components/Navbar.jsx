@@ -7,7 +7,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false)
 
   return (
-    <div className="m-4">
+    <div className="m-8">
       {/* For Mobile screen */}
       <nav className="flex justify-between items-center md:hidden">
         <h1 className="text-veryDarkViolet font-bold text-4xl cursor-pointer">
