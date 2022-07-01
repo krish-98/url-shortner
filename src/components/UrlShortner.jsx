@@ -14,42 +14,41 @@ const UrlShortner = () => {
     setValue(e.target.value)
   }
 
-  const URLShortner = async (e) => {
+  const URLShortner = (e) => {
     e.preventDefault()
     const URL = `https://api.shrtco.de/v2/shorten?url=`
 
     if (value === "") {
       setIsValid(false)
     } else {
-      const fetchedData = await fetch(URL + value)
+      const fetchedData = fetch(URL + value)
         .then((res) => res.json())
         .then((data) => {
           console.log(data)
-          console.log(data.result.original_link, data.result.short_link)
           setData(data)
           setLists((previousData) => [...previousData, data])
+          setValue("")
         })
         .catch((error) => {
           console.log(error.message)
         })
 
-      // setLists(fetchedData)
       return fetchedData
     }
   }
 
-  const copyToClipboardHandler = (copiedText) => {
-    navigator.clipboard.writeText(copiedText)
+  const copyToClipboardHandler = (URLCopied) => {
+    navigator.clipboard.writeText(URLCopied)
     setCopiedText(true)
   }
 
   return (
-    <section className="bg-Gray">
+    <section className="relative -top-20 m-4">
       <form
         onSubmit={URLShortner}
-        className="flex bg-DarkViolet p-12 w-[70%] mx-auto rounded-lg"
+        className="w-full md:flex bg-DarkViolet p-12  md:w-[70%] mx-auto rounded-lg  "
       >
-        <div className="w-[80%]">
+        <div className="w-full my-4 md:my-0 md:w-[80%]">
           <label htmlFor="">
             <input
               className={`w-full p-4 rounded-lg outline-none border-2 ${
@@ -67,8 +66,8 @@ const UrlShortner = () => {
             <p className="mt-2 text-Red">Please add a link to shorten them</p>
           )}
         </div>
-        <div className="w-[20%]">
-          <button className="w-full ml-8 bg-Cyan px-4 py-4 text-white rounded-xl hover:opacity-50">
+        <div className="w-full md:w-[20%]">
+          <button className="w-full md:ml-8 bg-Cyan px-4 py-4 text-white rounded-xl hover:opacity-50">
             Shorten It!
           </button>
         </div>
@@ -78,23 +77,23 @@ const UrlShortner = () => {
         lists?.length > 0 &&
         lists?.map((list, index) => (
           <div
-            key={lists[index]}
-            className="w-[70%] mx-auto bg-white mt-4 p-6 flex justify-between items-center font-semibold"
+            key={index}
+            className="md:w-[70%] mx-auto bg-white mt-4 p-6 md:flex justify-between items-center font-semibold rounded-lg "
           >
-            <div className="mx-4">
+            <div className="mx-4 md:mx-4 mb-4 md:mb-4">
               <p>{list && list?.result?.original_link}</p>
             </div>
-            <div className="flex items-center gap-4  ">
+            <div className="flex items-center gap-4 mx-4">
               <p className="text-Cyan w-full">
                 {list && list?.result?.short_link}
               </p>
               <button
                 onClick={() => copyToClipboardHandler(list?.result?.short_link)}
-                className={` px-8 py-2 rounded-lg text-white hover:opacity-50 ${
+                className={`px-8 py-2 rounded-lg text-white hover:opacity-50 ${
                   copiedText ? "bg-veryDarkViolet" : "bg-Cyan"
                 }`}
               >
-                {copiedText ? "Copied!" : " Copy"}
+                {copiedText ? "Copied!" : "Copy"}
               </button>
             </div>
           </div>
