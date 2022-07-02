@@ -73,7 +73,8 @@ const UrlShortner = () => {
         </div>
       </form>
 
-      {lists?.length > 0 &&
+      {data.ok &&
+        lists?.length > 0 &&
         lists?.map((list) => (
           <div
             key={list.result.code}
