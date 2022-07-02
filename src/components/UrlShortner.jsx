@@ -53,8 +53,8 @@ const UrlShortner = () => {
             <input
               className={`w-full p-4 rounded-lg outline-none border-2 ${
                 !isValid
-                  ? ("border-Red", "placeholder:text-Red")
-                  : ("border-white", "placeholder:text-Gray")
+                  ? `border-Red placeholder:text-Red`
+                  : `border-white placeholder:text-Gray`
               }`}
               type="text"
               placeholder="Shorten a link here..."
@@ -73,11 +73,10 @@ const UrlShortner = () => {
         </div>
       </form>
 
-      {data?.ok &&
-        lists?.length > 0 &&
-        lists?.map((list, index) => (
+      {lists?.length > 0 &&
+        lists?.map((list) => (
           <div
-            key={index}
+            key={list.result.code}
             className="md:w-[70%] mx-auto bg-white mt-4 p-6 md:flex justify-between items-center font-semibold rounded-lg  overflow-x-hidden"
           >
             <div className="mx-4 md:mx-4 mb-4 md:mb-4">
@@ -103,34 +102,3 @@ const UrlShortner = () => {
 }
 
 export default UrlShortner
-
-// working
-
-// {data.ok && (
-//   <div className="w-[70%] mx-auto bg-white mt-4 p-6 flex justify-between items-center font-semibold">
-//     <div className="mx-4">
-//       <p>{data && data?.result?.original_link}</p>
-//     </div>
-//     <div className="flex items-center gap-4  ">
-//       <p className="text-Cyan w-full">
-//         {data && data?.result?.short_link}
-//       </p>
-//       <button
-//         onClick={() => copyToClipboardHandler(data?.result?.short_link)}
-//         className={` px-8 py-2 rounded-lg text-white hover:opacity-50 ${
-//           copiedText ? "bg-veryDarkViolet" : "bg-Cyan"
-//         }`}
-//       >
-//         {copiedText ? "Copied!" : " Copy"}
-//       </button>
-//     </div>
-//   </div>
-// )}
-
-// const URLInfo = async () => {
-//   const infoURL = "https://api.shrtco.de/v2/info?code="
-
-//   const responseURLData = await fetch(infoURL + code)
-//     .then((res) => res.json())
-//     .then((data) => console.log(data))
-// }
