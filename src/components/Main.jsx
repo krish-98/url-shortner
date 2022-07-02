@@ -9,8 +9,8 @@ const Main = () => {
     <main className="mt-28 bg-neutral-100 h-[200vh] md:h-auto">
       <UrlShortner />
 
-      <section className="h-screen text-center md:text-left">
-        <div className="w-[70%] mx-auto">
+      <section className="h-screen text-center md:text-left mx-4">
+        <div className="md:w-[70%] mx-auto">
           <div className="text-center py-28">
             <h1 className="text-4xl font-bold">Advanced Statistics</h1>
             <p className="mt-4 font-medium text-Gray">

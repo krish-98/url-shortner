@@ -78,7 +78,7 @@ const UrlShortner = () => {
         lists?.map((list, index) => (
           <div
             key={index}
-            className="md:w-[70%] mx-auto bg-white mt-4 p-6 md:flex justify-between items-center font-semibold rounded-lg "
+            className="md:w-[70%] mx-auto bg-white mt-4 p-6 md:flex justify-between items-center font-semibold rounded-lg  overflow-x-hidden"
           >
             <div className="mx-4 md:mx-4 mb-4 md:mb-4">
               <p>{list && list?.result?.original_link}</p>
