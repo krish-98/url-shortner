@@ -5,6 +5,7 @@ const UrlShortner = () => {
   const [data, setData] = useState({})
   const [isValid, setIsValid] = useState(true)
   const [copiedText, setCopiedText] = useState(false)
+  const [text, setText] = useState("Copy")
   const [lists, setLists] = useState([])
 
   const inputHandler = (e) => {
@@ -40,6 +41,8 @@ const UrlShortner = () => {
   const copyToClipboardHandler = (URLCopied) => {
     navigator.clipboard.writeText(URLCopied)
     setCopiedText(true)
+
+    setText("Copied")
   }
 
   return (
@@ -88,12 +91,14 @@ const UrlShortner = () => {
                 {list && list?.result?.short_link}
               </p>
               <button
-                onClick={() => copyToClipboardHandler(list?.result?.short_link)}
+                onClick={() => {
+                  copyToClipboardHandler(list?.result?.short_link)
+                }}
                 className={`px-8 py-2 rounded-lg text-white hover:opacity-50 ${
                   copiedText ? "bg-veryDarkViolet" : "bg-Cyan"
                 }`}
               >
-                {copiedText ? "Copied!" : "Copy"}
+                {text}
               </button>
             </div>
           </div>

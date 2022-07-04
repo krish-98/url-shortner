@@ -4,7 +4,7 @@ import Illustration from "../images/illustration-working.svg"
 const Header = () => {
   return (
     <header className="mx-8">
-      <div className="mt-16 md:flex justify-between max-w-7xl mx-auto md:mt-44">
+      <div className="flex flex-col-reverse mt-16 md:flex md:flex-row md:justify-between max-w-7xl mx-auto md:mt-44">
         <div className="text-center md:text-left">
           <h1 className="text-[4rem] leading-tight font-bold text-veryDarkViolet">
             More than just shorter links
@@ -20,7 +20,7 @@ const Header = () => {
 
         <div className="mt-8 w-screen">
           <img
-            className="md:relative -top-20 left-64 object-contain"
+            className="mb-8 md:relative -top-20 left-64 object-contain"
             src={Illustration}
             alt="illustration"
           />
