@@ -20,10 +20,10 @@ const Main = () => {
           </div>
 
           <div className="md:flex justify-between items-center gap-8 h-[40vh]">
-            <div className="bg-white p-8 relative after:w-8 after:h-2 after:bg-Cyan after:inline-block after:absolute after:top-28 after:-right-4 after:z-[1] after:translate-x-4">
-              <span className="absolute -top-8 bg-DarkViolet p-4 rounded-full">
+            <div className="flex flex-col items-center bg-white p-8 relative after:absolute after:bottom-0 after:bg-Cyan after:w-32 after:h-2 after:rotate-90 md:after:-right-4 md:after:top-28 md:after:translate-x-4">
+              <div className="bg-DarkViolet p-4 rounded-full">
                 <img src={IconBrand} alt="icon-brand" />
-              </span>
+              </div>
               <h1 className="text-2xl font-bold my-4 mt-12">
                 Brand Recognition
               </h1>
@@ -34,10 +34,10 @@ const Main = () => {
               </p>
             </div>
 
-            <div className="bg-white p-8 relative mt-20 after:w-8 after:h-2 after:bg-Cyan after:inline-block after:absolute after:top-28 after:-right-4 after:z-[1] after:translate-x-4">
-              <span className="absolute -top-8 bg-DarkViolet p-4 rounded-full">
+            <div className="flex flex-col items-center bg-white p-8 relative mt-20 after:absolute after:top-72 after:bg-Cyan after:w-32 after:h-2 after:rotate-90 md:after:-right-4 md:after:top-28 md:after:translate-x-4">
+              <div className="bg-DarkViolet p-4 rounded-full">
                 <img src={Records} alt="records" />
-              </span>
+              </div>
               <h1 className="text-2xl font-bold my-4 mt-12">
                 Detailed Records
               </h1>
@@ -48,10 +48,10 @@ const Main = () => {
               </p>
             </div>
 
-            <div className="bg-white p-8 relative mt-40">
-              <span className="absolute -top-8 bg-DarkViolet p-4 rounded-full">
+            <div className="flex flex-col items-center bg-white p-8 relative mt-40">
+              <div className="bg-DarkViolet p-4 rounded-full">
                 <img src={Customizable} alt="customizable" />
-              </span>
+              </div>
               <h1 className="text-2xl font-bold my-4 mt-12">
                 Fully customizable
               </h1>

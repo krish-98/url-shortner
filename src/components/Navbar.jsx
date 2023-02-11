@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <div className="m-8">
       {/* For Mobile screen */}
-      <nav className="flex justify-between items-center md:hidden">
+      <nav className="relative flex justify-between items-center md:hidden">
         <h1 className="text-veryDarkViolet font-bold text-4xl cursor-pointer">
           Shortly
         </h1>
@@ -17,13 +17,13 @@ const Navbar = () => {
           {!toggle ? (
             <GiHamburgerMenu
               onClick={() => setToggle(true)}
-              className="w-8 h-8 text-Gray cursor-pointer"
+              className="w-7 h-7 text-Gray cursor-pointer"
             />
           ) : (
             <motion.div animate={{ rotate: 360 }} transition={{ duration: 2 }}>
               <ImCross
                 onClick={() => setToggle(false)}
-                className="w-8 h-8 text-Gray cursor-pointer"
+                className="w-7 h-7 text-Gray cursor-pointer"
               />
             </motion.div>
           )}
@@ -31,20 +31,20 @@ const Navbar = () => {
       </nav>
 
       {toggle && (
-        <ul className="bg-slate-200 text-center mt-2 rounded-3xl md:hidden ">
-          <li className="border-b-2 border-b-gray-50 py-2 font-medium text-DarkViolet hover:text-Gray cursor-pointer">
+        <ul className="absolute w-full top-[5.5rem] right-0 left-0 py-6 bg-[#eff1f7] text-center rounded-b-[5rem] md:hidden">
+          <li className="py-2 font-medium text-DarkViolet cursor-pointer transition-all duration-300 hover:text-Gray hover:bg-gray-50">
             Features
           </li>
-          <li className="border-b-2 border-b-gray-50 py-2 font-medium text-DarkViolet hover:text-Gray cursor-pointer">
+          <li className="py-2 font-medium text-DarkViolet cursor-pointer transition-all duration-300 hover:text-Gray hover:bg-gray-50">
             Pricing
           </li>
-          <li className="border-b-2 border-b-gray-50 py-2 font-medium text-DarkViolet hover:text-Gray cursor-pointer">
+          <li className="py-2 font-medium text-DarkViolet cursor-pointer transition-all duration-300 hover:text-Gray hover:bg-gray-50">
             Resources
           </li>
-          <li className="border-b-2 border-b-gray-50 py-2 font-medium text-DarkViolet hover:text-Gray cursor-pointer">
+          <li className="py-2 font-medium text-DarkViolet cursor-pointer transition-all duration-300 hover:text-Gray hover:bg-gray-50">
             Login
           </li>
-          <li className="border-b-2 border-b-gray-50 py-2 font-medium text-DarkViolet hover:text-Gray cursor-pointer">
+          <li className="py-2 font-medium text-DarkViolet cursor-pointer transition-all duration-300 hover:text-Gray hover:bg-gray-50">
             Sign Up
           </li>
         </ul>
