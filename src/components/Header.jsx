@@ -6,10 +6,10 @@ const Header = () => {
     <header className="mx-8">
       <div className="flex flex-col-reverse mt-16 md:flex md:flex-row md:justify-between max-w-7xl mx-auto md:mt-44">
         <div className="text-center md:text-left">
-          <h1 className="text-[4rem] leading-tight font-bold text-veryDarkViolet">
+          <h1 className="text-[3rem] md:text-[4rem] leading-tight font-bold text-veryDarkViolet">
             More than just shorter links
           </h1>
-          <p className="text-2xl text-gray-400 mt-2 leading-8">
+          <p className="text-lg md:text-2xl text-gray-400 mt-2 leading-8">
             Build your brand's recognition and get detailed insights on how your
             links are performing
           </p>
