@@ -25,9 +25,11 @@ const UrlShortner = () => {
       const fetchedData = fetch(URL + value)
         .then((res) => res.json())
         .then((data) => {
-          setData(data)
-          setLists((previousData) => [...previousData, data])
-          setValue("")
+          if (data?.ok) {
+            setData(data)
+            setLists((previousData) => [...previousData, data])
+            setValue("")
+          }
         })
         .catch((error) => {
           console.log(error.message)
@@ -86,13 +88,13 @@ const UrlShortner = () => {
         lists?.reverse().map((list, index) => (
           <div
             key={index}
-            className="bg-white mt-4 p-4 flex flex-col gap-2 justify-between items-center font-semibold rounded-lg truncate max-w-7xl m-auto"
+            className="bg-white mt-4 p-4 flex flex-col gap-3 items-center  font-semibold rounded-lg truncate max-w-3xl m-auto md:px-6 md:py-6"
           >
-            <p className="w-full">{list && list?.result?.original_link}</p>
-            <div className="w-full flex items-center gap-4 mx-4">
-              <p className="text-Cyan w-full">
-                {list && list?.result?.short_link}
-              </p>
+            <p className="w-full text-center overflow-hidden">
+              {list && list?.result?.original_link}
+            </p>
+            <div className="w-full flex justify-center items-center gap-8">
+              <p className="text-Cyan">{list && list?.result?.short_link}</p>
               <button
                 onClick={() => {
                   copyToClipboardHandler(list?.result?.short_link)
