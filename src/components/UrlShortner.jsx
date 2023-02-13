@@ -25,7 +25,6 @@ const UrlShortner = () => {
       const fetchedData = fetch(URL + value)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data)
           setData(data)
           setLists((previousData) => [...previousData, data])
           setValue("")
@@ -43,6 +42,10 @@ const UrlShortner = () => {
     setCopiedText(true)
 
     setText("Copied")
+    setTimeout(() => {
+      setCopiedText(false)
+      setText("Copy")
+    }, 2000)
   }
 
   return (
@@ -52,9 +55,9 @@ const UrlShortner = () => {
         className="w-full md:flex bg-DarkViolet p-12 max-w-7xl mx-auto rounded-lg"
       >
         <div className="w-full my-4 md:my-0 md:w-[80%]">
-          <label htmlFor="">
+          <label>
             <input
-              className={`w-full p-4 rounded-lg outline-none border-2 ${
+              className={`w-full p-4 rounded-lg outline-none border-2 focus:border-Cyan ${
                 !isValid
                   ? `border-Red placeholder:text-Red`
                   : `border-white placeholder:text-Gray`
@@ -63,8 +66,10 @@ const UrlShortner = () => {
               placeholder="Shorten a link here..."
               value={value}
               onChange={inputHandler}
+              onFocus={() => setIsValid(true)}
             />
           </label>
+
           {!isValid && (
             <p className="mt-2 text-Red">Please add a link to shorten them</p>
           )}
@@ -78,15 +83,13 @@ const UrlShortner = () => {
 
       {data.ok &&
         lists?.length > 0 &&
-        lists?.map((list) => (
+        lists?.reverse().map((list, index) => (
           <div
-            key={list.result.code}
-            className="md:w-[70%] mx-auto bg-white mt-4 p-6 md:flex justify-between items-center font-semibold rounded-lg  overflow-x-hidden"
+            key={index}
+            className="bg-white mt-4 p-4 flex flex-col gap-2 justify-between items-center font-semibold rounded-lg truncate max-w-7xl m-auto"
           >
-            <div className="mx-4 md:mx-4 mb-4 md:mb-4">
-              <p>{list && list?.result?.original_link}</p>
-            </div>
-            <div className="flex items-center gap-4 mx-4">
+            <p className="w-full">{list && list?.result?.original_link}</p>
+            <div className="w-full flex items-center gap-4 mx-4">
               <p className="text-Cyan w-full">
                 {list && list?.result?.short_link}
               </p>
