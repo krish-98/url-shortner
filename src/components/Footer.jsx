@@ -11,7 +11,7 @@ const Footer = () => {
         <h1 className="text-2xl md:text-3xl font-bold text-white">
           Boost your links today
         </h1>
-        <button className="textxl md:text-2xl font-bold text-white bg-Cyan py-4 px-8 rounded-full hover:bg-cyan-200">
+        <button className="textxl lg:text-lg font-bold text-white bg-Cyan py-4 px-8 rounded-full hover:bg-cyan-200">
           Get Stared
         </button>
       </div>
@@ -21,39 +21,39 @@ const Footer = () => {
 
         <div>
           <h3 className="text-lg font-semibold text-white pb-2">Features</h3>
-          <p className="text-sm md:text-base text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
+          <p className="text-sm text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
             Link Shortening
           </p>
-          <p className="text-sm md:text-base text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
+          <p className="text-sm text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
             Branded Links
           </p>
-          <p className="text-sm md:text-base text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
+          <p className="text-sm text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
             Analytics
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold text-white pb-2">Blog</h3>
-          <p className="text-sm md:text-base text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
+          <p className="text-sm text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
             Developers
           </p>
-          <p className="text-sm md:text-base text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
+          <p className="text-sm text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
             Support
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold text-white pb-2">Company</h3>
-          <p className="text-sm md:text-base text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
+          <p className="text-sm text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
             About
           </p>
-          <p className="text-sm md:text-base text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
+          <p className="text-sm text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
             Our Team
           </p>
-          <p className="text-sm md:text-base text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
+          <p className="text-sm text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
             Careers
           </p>
-          <p className="text-sm md:text-base text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
+          <p className="text-sm text-Gray my-2 font-medium cursor-pointer hover:text-Cyan">
             Contact
           </p>
         </div>

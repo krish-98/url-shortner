@@ -9,7 +9,7 @@ const Header = () => {
           <h1 className="text-[3rem] md:text-[3.5rem] leading-tight font-bold text-veryDarkViolet">
             More than just shorter links
           </h1>
-          <p className="text-lg md:text-xl text-gray-400 mt-2 leading-8">
+          <p className="text-lg md:text-lg text-gray-400 mt-2 leading-8">
             Build your brand's recognition and get detailed insights on how your
             links are performing
           </p>

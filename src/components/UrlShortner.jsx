@@ -46,10 +46,10 @@ const UrlShortner = () => {
   }
 
   return (
-    <section className="relative -top-20 m-4">
+    <section className="relative -top-20 px-4 md:px-8">
       <form
         onSubmit={URLShortner}
-        className="w-full md:flex bg-DarkViolet p-12  md:w-[70%] mx-auto rounded-lg  "
+        className="w-full md:flex bg-DarkViolet p-12 max-w-7xl mx-auto rounded-lg"
       >
         <div className="w-full my-4 md:my-0 md:w-[80%]">
           <label htmlFor="">
