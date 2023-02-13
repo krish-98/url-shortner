@@ -3,13 +3,13 @@ import Illustration from "../images/illustration-working.svg"
 
 const Header = () => {
   return (
-    <header className="mx-8">
-      <div className="flex flex-col-reverse mt-16 md:flex md:flex-row md:justify-between max-w-7xl mx-auto md:mt-44">
-        <div className="text-center md:text-left">
-          <h1 className="text-[3rem] md:text-[4rem] leading-tight font-bold text-veryDarkViolet">
+    <header className="px-8">
+      <div className="flex flex-col-reverse mt-12 md:flex md:flex-row md:justify-between md:py-20 md:gap-6 max-w-7xl mx-auto">
+        <div className="md:w-full text-center md:text-left">
+          <h1 className="text-[3rem] md:text-[3.5rem] leading-tight font-bold text-veryDarkViolet">
             More than just shorter links
           </h1>
-          <p className="text-lg md:text-2xl text-gray-400 mt-2 leading-8">
+          <p className="text-lg md:text-xl text-gray-400 mt-2 leading-8">
             Build your brand's recognition and get detailed insights on how your
             links are performing
           </p>
@@ -18,9 +18,9 @@ const Header = () => {
           </button>
         </div>
 
-        <div className="mt-8 w-screen">
+        <div className="mt-8 md:w-full">
           <img
-            className="mb-8 md:relative -top-20 left-64 object-contain"
+            className="mb-8 md:relative md:left-20 md:scale-150 lg:scale-125 lg:bottom-10 xl:scale-100 xl:bottom-24"
             src={Illustration}
             alt="illustration"
           />

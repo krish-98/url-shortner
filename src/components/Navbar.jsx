@@ -7,7 +7,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false)
 
   return (
-    <div className="m-8">
+    <div className="p-8">
       {/* For Mobile screen */}
       <nav className="relative flex justify-between items-center md:hidden">
         <h1 className="text-veryDarkViolet font-bold text-4xl cursor-pointer">
@@ -51,8 +51,8 @@ const Navbar = () => {
       )}
 
       {/* For Desktop screen */}
-      <nav className="hidden md:flex justify-between items-center max-w-7xl m-auto my-10">
-        <div className="flex items-center gap-10">
+      <nav className="hidden md:flex justify-between items-center max-w-7xl m-auto">
+        <div className="flex items-center gap-14">
           <h1 className="text-veryDarkViolet font-bold text-4xl">Shortly</h1>
           <ul className="flex gap-8">
             <li className="text-grayishViolet font-semibold hover:text-veryDarkViolet cursor-pointer">
@@ -67,7 +67,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-6">
           <p className="text-grayishViolet font-semibold hover:text-veryDarkViolet cursor-pointer">
             Login
           </p>
