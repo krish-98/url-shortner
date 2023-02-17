@@ -5,7 +5,6 @@ const UrlShortner = () => {
   const [data, setData] = useState({})
   const [isValid, setIsValid] = useState(true)
   const [copiedText, setCopiedText] = useState(false)
-  const [text, setText] = useState("Copy")
   const [lists, setLists] = useState([])
 
   const inputHandler = (e) => {
@@ -43,10 +42,8 @@ const UrlShortner = () => {
     navigator.clipboard.writeText(URLCopied)
     setCopiedText(true)
 
-    setText("Copied")
     setTimeout(() => {
       setCopiedText(false)
-      setText("Copy")
     }, 2000)
   }
 
@@ -103,7 +100,7 @@ const UrlShortner = () => {
                   copiedText ? "bg-veryDarkViolet" : "bg-Cyan"
                 }`}
               >
-                {text}
+                {copiedText ? "Copied" : "Copy"}
               </button>
             </div>
           </div>
