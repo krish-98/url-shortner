@@ -2,10 +2,16 @@ import React, { useState } from "react"
 
 const UrlShortner = () => {
   const [value, setValue] = useState("")
-  const [data, setData] = useState({})
+  // const [data, setData] = useState({})
   const [isValid, setIsValid] = useState(true)
   const [copiedText, setCopiedText] = useState(false)
-  const [lists, setLists] = useState([])
+  const [lists, setLists] = useState(
+    localStorage.getItem("urlList")
+      ? JSON.parse(localStorage.getItem("urlList"))
+      : []
+  )
+
+  const reversed = lists.reverse()
 
   const inputHandler = (e) => {
     if (e.target.value.trim().length > 0) {
@@ -25,8 +31,14 @@ const UrlShortner = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data?.ok) {
-            setData(data)
-            setLists((previousData) => [...previousData, data])
+            // setData(data)
+            setLists((previousData) => {
+              localStorage.setItem(
+                "urlList",
+                JSON.stringify([...previousData, data])
+              )
+              return [...previousData, data]
+            })
             setValue("")
           }
         })
@@ -80,9 +92,8 @@ const UrlShortner = () => {
         </div>
       </form>
 
-      {data.ok &&
-        lists?.length > 0 &&
-        lists?.reverse().map((list, index) => (
+      {lists.length > 0 &&
+        reversed?.map((list, index) => (
           <div
             key={index}
             className="bg-white mt-4 p-4 flex flex-col gap-3 items-center  font-semibold rounded-lg truncate max-w-3xl m-auto md:px-6 md:py-6"
