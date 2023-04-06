@@ -20,7 +20,7 @@ const Header = () => {
 
         <div className="mt-8 md:w-full">
           <img
-            className="mb-8 md:relative md:left-20 md:scale-150 lg:scale-125 lg:bottom-10 xl:scale-100 xl:bottom-24"
+            className="mb-4 md:relative md:left-20 md:scale-150 lg:scale-125 lg:bottom-10 xl:scale-100 xl:bottom-24"
             src={Illustration}
             alt="illustration"
           />

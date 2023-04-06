@@ -2,7 +2,6 @@ import React, { useState } from "react"
 
 const UrlShortner = () => {
   const [value, setValue] = useState("")
-  // const [data, setData] = useState({})
   const [isValid, setIsValid] = useState(true)
   const [copiedText, setCopiedText] = useState(false)
   const [lists, setLists] = useState(
@@ -11,7 +10,7 @@ const UrlShortner = () => {
       : []
   )
 
-  const reversed = lists.reverse()
+  const reversed = [...lists].reverse()
 
   const inputHandler = (e) => {
     if (e.target.value.trim().length > 0) {
